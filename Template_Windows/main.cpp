@@ -53,6 +53,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 	application.infoDisplay.fpsinfo = true;
 
 	MSG msg = { 0 };
+	application.Initialize(); // application will start initializing at this point (asynchronously). If you start calling engine functionality immediately before application.Run() gets called, then you must first initialize the application yourself.
+
+	wi::initializer::InitializeComponentsImmediate(); // (Optional) allows to initialize all components immediately and block the application until finished. Otherwise the initialization will take place at the first application.Run() asynchronously. This is useful if you want to start using other parts of the engine before application.Run() is called.
+
+	wi::RenderPath3D myGame; // Declare a game screen component, aka "RenderPath" (you could also override its Update(), Render() etc. functions). 
+	application.ActivatePath(&myGame); // Register your game to the application. It will call Start(), Update(), Render(), etc. from now on...
+	
+	//wi::scene::LoadModel("C:\\Users\\Pilgrim\\OneDrive\\Documents\\arugalfight.wiscene");
+	wi::lua::RunFile("arugalfight.lua");
 	while (msg.message != WM_QUIT)
 	{
 		if (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE)) {

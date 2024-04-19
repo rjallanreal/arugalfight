@@ -48,4 +48,9 @@
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="arugalfight.lua">
+      <Filter>Code</Filter>
+    </None>
+  </ItemGroup>
 </Project>

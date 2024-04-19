@@ -136,6 +136,9 @@
   <ItemGroup>
     <Image Include="wicked.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="arugalfight.lua" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
